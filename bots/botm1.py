@@ -33,6 +33,9 @@ first_channel = json.loads(client.chat_channels.list().content)["channels"][0]
 cid = first_channel["id"]
 cname = first_channel["name"]
 
+print("--------------------------------------------\n")
+print("Please read README_botm1.md for instructions\n")
+print("--------------------------------------------\n")
 
 stop = False
 while not stop:
@@ -114,7 +117,7 @@ while not stop:
         ms_id = input("The id of the message you wanna delete: ")
         res = client.chat_messages.delete(message_id = ms_id, to_channel = cid)
         print(res.content)
-    else:
+    else:   
         client.chat_messages.post(to_channel=cid, message=message)
         # print(json.loads(client.chat_messages.list(to_channel = cid, user_id="me").content))
         time.sleep(0.4)
